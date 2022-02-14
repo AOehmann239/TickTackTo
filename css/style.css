@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+.gameBoard {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  justify-content: center;
+  align-content: center;
+}
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: orange;
+  border: 5px black solid;
+  font-size: 150px;
+}
+
+.select-XRed {
+  background-color: red;
+}
+.select-OBlue {
+  background-color: blue;
+}
+
+#reset {
+}
