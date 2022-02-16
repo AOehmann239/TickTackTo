@@ -7,13 +7,16 @@ winCombos = [
     [6, 7, 8],
     [0, 3, 6],             // tie is anything other than these ooooooorrrrrr when all the boxes are clicked 
     [1, 4, 7],             // and there is no winner
-    [2, 4, 8],
+    [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6],
     ];
 
 //define winner function
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+//some game states that will be true false that would end the game
+//let gameOver = false
 
     let checkWinner = () => {
         let winner = false;
@@ -28,11 +31,14 @@ winCombos = [
                 winner = true;
                 return;
             }
+            
 
         })
-        return winner;
+        return winner
+
     }
-    
+
+//reset button    
     let resetBoard = () => {
         window.location.reload();
     }
@@ -58,11 +64,20 @@ let handleClick = (event) => {
     }
 
     console.log(board);
+
     //check for winning conditions
     let isGameWon = checkWinner();
-    if (isGameWon){
-        document.querySelector("h4").innerHTML = "The winner is " + roundPotentialWinner;
-        }
+        if (isGameWon){
+        document.querySelector("#winMessage").innerHTML = "The winner is " + roundPotentialWinner;
+        document.querySelectorAll(".square").forEach(
+            (square) => {
+                square.removeEventListener('click', handleClick)
+            })}
+    // tie condition    
+        if (!board.includes("") && !checkWinner()) {
+        document.querySelector("#tieMessage").innerHTML = "The game is a tie!  Hit reset and try again"
+        }    
+        
     }
 
 

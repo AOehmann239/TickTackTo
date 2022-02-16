@@ -27,6 +27,9 @@ body {
 .select-OBlue {
   background-color: blue;
 }
+h4 {
+  font-size: larger;
+}
 
 #reset {
 }
